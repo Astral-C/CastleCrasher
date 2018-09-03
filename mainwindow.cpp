@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::updateTile(){
     if(map.render.selectedItems().length() > 0){
-        QPixmap img = QGraphicsPixmapItem(map.render.selectedItems().first()).pixmap();
+        QPixmap img = map.render.selectedItems().first()->data(0).value<QPixmap>();
         ui->tileImg->setPixmap(img);
         ui->tileImg->setGeometry(ui->tileImg->x(), ui->tileImg->y(), img.width(), img.height());
         ui->tileImg->update();

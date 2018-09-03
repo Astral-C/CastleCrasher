@@ -17,9 +17,9 @@ void CastlevaniaMap::init(int w, int h, int offset, QString areaName, bStream::C
         for(int y = 0; y < h; y++){
             uint8_t tileType = rom.readUInt8();
             QString filename = QString::number(tileType, 16).toUpper().prepend(":/levels/" + areaName + "/").append(".png");
-            std::cout << filename.toStdString() << std::endl;
             CastlevaniaTile *tile = new CastlevaniaTile(tileType, filename);
             tile->setPos((x*32), (y*32));
+            tile->setData(0, tile->pixmap()); //this is gross.
             tile->setFlag(QGraphicsItem::ItemIsSelectable, true);
             render.addItem(tile);
         }
