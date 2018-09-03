@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/Icon">
+        <file>icon.png</file>
+    </qresource>
+    <qresource prefix="/levels">
+        <file>Entrance/1E.png</file>
+        <file>Entrance/3A.png</file>
+        <file>Entrance/3B.png</file>
+        <file>Entrance/3C.png</file>
+        <file>Entrance/3D.png</file>
+        <file>Entrance/3E.png</file>
+        <file>Entrance/3F.png</file>
+        <file>Entrance/4A.png</file>
+        <file>Entrance/4B.png</file>
+        <file>Entrance/4C.png</file>
+        <file>Entrance/4D.png</file>
+        <file>Entrance/4E.png</file>
+        <file>Entrance/39.png</file>
+        <file>Entrance/40.png</file>
+        <file>Entrance/41.png</file>
+        <file>Entrance/42.png</file>
+        <file>Entrance/43.png</file>
+        <file>Entrance/44.png</file>
+        <file>Entrance/45.png</file>
+        <file>Entrance/46.png</file>
+        <file>Entrance/47.png</file>
+        <file>Entrance/48.png</file>
+        <file>Entrance/49.png</file>
+    </qresource>
+</RCC>
