@@ -45,6 +45,9 @@ public:
 
     void init(int w, int h, int offset, QString areaName, bStream::CFileStream& rom);
     void save(bStream::CFileStream& rom);
+    void clear();
+    void loadGraphics();
+    void clearGraphics();
     CastlevaniaMap();
 };
 

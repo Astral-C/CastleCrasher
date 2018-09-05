@@ -19,8 +19,7 @@ void CastlevaniaMap::init(int w, int h, int offset, QString areaName, bStream::C
     for(int x = 0; x < w; x++){
         for(int y = 0; y < h; y++){
             uint8_t tType = rom.readUInt8();
-            QString filename = QString::number(tType, 16).toUpper().prepend(tilePth).append(".png");
-            CastlevaniaTile *tile = new CastlevaniaTile(filename);
+            CastlevaniaTile *tile = new CastlevaniaTile();
             tile->tileType = tType;
             tile->setPos((x*32), (y*32));
             tile->setFlag(QGraphicsItem::ItemIsSelectable, true);
@@ -29,6 +28,23 @@ void CastlevaniaMap::init(int w, int h, int offset, QString areaName, bStream::C
     }
 
     rom.seek(pos);
+}
+
+void CastlevaniaMap::loadGraphics(){
+    QList<QGraphicsItem*> tiles = render.items(Qt::SortOrder::AscendingOrder);
+    for(auto tile : tiles){
+        CastlevaniaTile* t = qgraphicsitem_cast<CastlevaniaTile*>(tile);
+        QString filename = QString::number(t->tileType, 16).toUpper().prepend(tilePth).append(".png");
+        t->setPixmap(QPixmap(filename));
+    }
+}
+
+void CastlevaniaMap::clearGraphics(){
+    QList<QGraphicsItem*> tiles = render.items(Qt::SortOrder::AscendingOrder);
+    for(auto tile : tiles){
+        CastlevaniaTile* t = qgraphicsitem_cast<CastlevaniaTile*>(tile);
+        t->setPixmap(QPixmap()); //set to empty pixmap. Will discard of previous pixmap?
+    }
 }
 
 void CastlevaniaMap::save(bStream::CFileStream& rom){
@@ -40,7 +56,17 @@ void CastlevaniaMap::save(bStream::CFileStream& rom){
     }
 }
 
+void CastlevaniaMap::clear(){
+    mapWidth = 0;
+    mapHeight = 0;
+    name = "";
+    mapOffset = 0;
+    tilePth = "";
+    render.clear();
+}
+
 CastlevaniaTile::CastlevaniaTile(QString img)
 {
-    setPixmap(img);
+    //move to something else to load the pixmaps?
+    //setPixmap(img);
 }
