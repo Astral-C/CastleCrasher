@@ -27,24 +27,24 @@ private:
         }
     }
 public:
-    uint8_t id;
+    int tileType;
     CastlevaniaTile();
-    CastlevaniaTile(uint8_t type, QString img);
+    CastlevaniaTile(QString img);
 };
 
 
 class CastlevaniaMap
 {
 public:
+    QString name; //map name
+    QString tilePth; //path to tile graphics in Resources
+    long mapOffset;
     int mapWidth, mapHeight;
-    int scrollX; // the amount to scroll, moving graphics to left
 
     QGraphicsScene render;
 
-    CastlevaniaTile getTile(int x, int y);
-    void setTile(int x, int y, int type);
-
     void init(int w, int h, int offset, QString areaName, bStream::CFileStream& rom);
+    void save(bStream::CFileStream& rom);
     CastlevaniaMap();
 };
 

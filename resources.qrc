@@ -26,5 +26,8 @@
         <file>Entrance/47.png</file>
         <file>Entrance/48.png</file>
         <file>Entrance/49.png</file>
+        <file>Entrance/0.png</file>
+        <file>Entrance/1.png</file>
+        <file>Entrance/A.png</file>
     </qresource>
 </RCC>

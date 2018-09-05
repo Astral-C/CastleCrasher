@@ -20,6 +20,10 @@ private slots:
     void updateTile();
     void on_actionOpen_Rom_triggered();
 
+    void on_tileType_valueChanged(int arg1);
+
+    void on_actionSave_Rom_triggered();
+
 private:
     Ui::MainWindow *ui;
     CastlevaniaMap map;
